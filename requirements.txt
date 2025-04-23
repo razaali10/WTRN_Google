@@ -1,7 +1,20 @@
 fastapi==0.100.0
 uvicorn==0.23.0
 wntr==0.4.0
-matplotlib==3.7.2
-pandas==2.0.3
 python-multipart==0.0.6
-numpy==1.26.4  # Add this line, or a known-good version
+# Required
+numpy>=1.21,<2.0
+scipy<1.13.0
+networkx
+pandas
+matplotlib
+setuptools
+
+# Optional
+plotly<6.0
+folium
+utm
+openpyxl
+geopandas
+rasterio
+rtree
