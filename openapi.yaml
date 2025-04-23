@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: WNTR EPANET Simulation API
+  description: Simulates EPANET water networks using WNTR and returns hydraulic summaries and plots.
+  version: "1.1.0"
+
+servers:
+  - url: https://wntr-chatgpt.onrender.com
+
+paths:
+  /simulate:
+    post:
+      summary: Simulate WNTR model using uploaded EPANET .inp file
+      operationId: simulate_epanet
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - inp_file
+              properties:
+                inp_file:
+                  type: string
+                  format: binary
+                  description: Upload a valid EPANET .inp file
+      responses:
+        "200":
+          description: Simulation completed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  summary:
+                    type: object
+                  markdown:
+                    type: string
+                  html_chart:
+                    type: string
+        "400":
+          description: Invalid EPANET input file
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+        "500":
+          description: Simulation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
