@@ -1,20 +1,7 @@
-fastapi==0.100.0
-uvicorn==0.23.0
-wntr==0.4.0
-python-multipart==0.0.6
-# Required
-numpy>=1.21,<2.0
-scipy<1.13.0
-networkx
-pandas
+fastapi
+uvicorn
+wntr
 matplotlib
-setuptools
+pandas
+python-multipart==0.0.6
 
-# Optional
-plotly<6.0
-folium
-utm
-openpyxl
-geopandas
-rasterio
-rtree
